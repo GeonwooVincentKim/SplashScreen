@@ -1,7 +1,10 @@
 package com.example.splashscreen_animation_test
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.animation.AnimationUtils
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -23,5 +26,13 @@ class SplashScreen : AppCompatActivity(){
         topTextView.startAnimation(topAnimation)
         middleTextView.startAnimation(middleAnimation)
         bottomTextView.startAnimation(bottomAnimation)
+
+        val splashScreenTimeOut: Int = 4000
+        val homeIntent: Intent = Intent(this@SplashScreen, MainActivity::class.java)
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            startActivity(homeIntent)
+            finish()
+        }, splashScreenTimeOut.toLong())
     }
 }
