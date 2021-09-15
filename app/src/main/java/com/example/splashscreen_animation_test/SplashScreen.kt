@@ -3,6 +3,7 @@ package com.example.splashscreen_animation_test
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.animation.AnimationUtils
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 @SuppressLint("CustomSplashScreen")
@@ -12,6 +13,15 @@ class SplashScreen : AppCompatActivity(){
         setContentView(R.layout.splash_screen)
 
         val topAnimation = AnimationUtils.loadAnimation(this, R.anim.top_animaion)
+        val middleAnimation = AnimationUtils.loadAnimation(this, R.anim.middle_animation)
+        val bottomAnimation = AnimationUtils.loadAnimation(this, R.anim.bottom_animation)
 
+        val topTextView = findViewById<TextView>(R.id.topTextView)
+        val middleTextView = findViewById<TextView>(R.id.middleTextView)
+        val bottomTextView = findViewById<TextView>(R.id.bottomTextView)
+
+        topTextView.startAnimation(topAnimation)
+        middleTextView.startAnimation(middleAnimation)
+        bottomTextView.startAnimation(bottomAnimation)
     }
 }
